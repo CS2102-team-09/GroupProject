@@ -99,20 +99,37 @@ if (isset($_POST['searchById'])) {
                     <div class=\"form-group\">
                         <label for=\"bookid_updated\">Date of publication:</label>
                         <input type=\"text\" class=\"form-control\" id=\"dop_updated\" name=\"dop_updated\" value='$row[date_of_publication]'>
-                    </div>
-            
-                    <button type=\"submit\" name=\"new\" class=\"btn btn-primary\">Update</button>
+                    </div>                    
+                    <div class=\"form-row align-items-left\">
+                        <div class=\"col-auto\">
+                            <button type=\"submit\" name=\"new\" class=\"btn btn-primary\">Submit</button>
+                        </div>
+                        <div class=\"col-auto\">
+                            <button type=\"submit\" name=\"delete\" class=\"btn btn-danger\">Delete</button>
+                        </div>
+                    </div>                    
+                    
                 </form>
             </div>
     	";
     }
 }
+
 if (isset($_POST['new'])) {    // Submit the update SQL command
     $result = pg_query($db, "UPDATE book SET name = '$_POST[book_name_updated]', price = '$_POST[price_updated]', date_of_publication = '$_POST[dop_updated]' WHERE book_id = '$_POST[bookid_updated]'");
     if (!$result) {
         echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-danger\">Update fail!</span></div>";
     } else {
         echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-success\">Update successful!</span></div>";
+    }
+}
+
+if (isset($_POST['delete'])) {    // Submit the update SQL command
+    $result = pg_query($db, "DELETE FROM book WHERE book_id = '$_POST[bookid_updated]'");
+    if (!$result) {
+        echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-danger\">Delete fail!</span></div>";
+    } else {
+        echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-success\">Delete successful!</span></div>";
     }
 }
 ?>
