@@ -104,7 +104,7 @@ if (isset($_POST['searchById'])) {
                     </div>                    
                     <div class=\"form-row align-items-left\">
                         <div class=\"col-auto\">
-                            <button type=\"submit\" name=\"new\" class=\"btn btn-primary\">Submit</button>
+                            <button type=\"submit\" name=\"new\" class=\"btn btn-primary\">Update</button>
                         </div>
                         <div class=\"col-auto\">
                             <button type=\"submit\" name=\"delete\" class=\"btn btn-danger\">Delete</button>
