@@ -12,13 +12,12 @@
 <body>
 
 <div class="container" style="margin-left: 15% margin-right: 15%">
-    <div class="container text-center">
+    <div class="container text-center page-header" style="margin-bottom: 20px">
         <p class="h1">Book Query System</p>
     </div>
     <div>
         <form name="display" action="index.php" method="POST">
             <div class="form-group">
-                <label for="bookid">Enter Book ID</label>
                 <input type="text" class="form-control" id="bookid" name="bookid" placeholder="Enter BookId">
             </div>
             <div class="form-row align-items-left">
@@ -27,6 +26,9 @@
                 </div>
                 <div class="col-auto">
                     <button type="submit" name="insert" class="btn btn-success">Add New</button>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" name="reset" class="btn btn-danger">Reset DB</button>
                 </div>
             </div>
 
@@ -132,6 +134,39 @@ if (isset($_POST['delete'])) {    // Submit the update SQL command
         echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-success\">Delete successful!</span></div>";
     }
 }
+
+if (isset($_POST['reset'])) {    // Submit the update SQL command
+    $result = pg_query($db, "
+        DROP TABLE book;
+        CREATE TABLE book (
+            book_id VARCHAR(100) PRIMARY KEY,
+            name VARCHAR(100),
+            price NUMERIC,
+            date_of_publication DATE
+        );
+        INSERT INTO book VALUES ('PHP01', 'Complete PHP 01', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP02', 'Complete PHP 02', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP03', 'Complete PHP 03', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP04', 'Complete PHP 04', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP05', 'Complete PHP 04', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP06', 'Complete PHP 06', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP07', 'Complete PHP 07', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP08', 'Complete PHP 08', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP09', 'Complete PHP 09', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP10', 'Complete PHP 10', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP11', 'Complete PHP 11', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP12', 'Complete PHP 12', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP13', 'Complete PHP 13', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP14', 'Complete PHP 14', 19.99, '2018-09-21');
+        INSERT INTO book VALUES ('PHP15', 'Complete PHP 15', 19.99, '2018-09-21');
+    ");
+    if (!$result) {
+        echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-danger\">Reset fail!</span></div>";
+    } else {
+        echo "<div class=\"container\" style=\"margin-top: 20px\"><span class=\"h5 text-success\">Reset successful!</span></div>";
+    }
+}
+
 ?>
 
 

@@ -1,3 +1,10 @@
+DROP TABLE book;
+CREATE TABLE book (
+    book_id VARCHAR(100) PRIMARY KEY,
+    name VARCHAR(100),
+    price NUMERIC,
+    date_of_publication DATE
+);
 INSERT INTO book VALUES ('PHP01', 'Complete PHP 01', 19.99, '2018-09-21');
 INSERT INTO book VALUES ('PHP02', 'Complete PHP 02', 19.99, '2018-09-21');
 INSERT INTO book VALUES ('PHP03', 'Complete PHP 03', 19.99, '2018-09-21');
