@@ -45,19 +45,19 @@ echo "
         <form name=\"display\" action=\"index.php\" method=\"POST\">
             <div class=\"form-group\">
                 <label for=\"new_bookid\">Book ID:</label>
-                <input type=\"text\" class=\"form-control\" id=\"new_bookid\" name=\"new_bookid\" value='$row[book_id]'>
+                <input type=\"text\" class=\"form-control\" id=\"new_bookid\" name=\"new_bookid\" value='$row[book_id]' required>
             </div>
             <div class=\"form-group\">
                 <label for=\"new_book_name\">Book Name:</label>
-                <input type=\"text\" class=\"form-control\" id=\"new_book_name\" name=\"new_book_name\" value='$row[name]'>
+                <input type=\"text\" class=\"form-control\" id=\"new_book_name\" name=\"new_book_name\" value='$row[name]' required>
             </div>
             <div class=\"form-group\">
                 <label for=\"new_price\">Price (USD):</label>
-                <input type=\"text\" class=\"form-control\" id=\"new_price\" name=\"new_price\" value='$row[price]'>
+                <input type=\"text\" class=\"form-control\" id=\"new_price\" name=\"new_price\" value='$row[price]' required>
             </div>
             <div class=\"form-group\">
                 <label for=\"new_dop\">Date of publication:</label>
-                <input type=\"text\" class=\"form-control\" id=\"new_dop\" name=\"new_dop\" value='$row[date_of_publication]'>
+                <input type=\"text\" class=\"form-control\" id=\"new_dop\" name=\"new_dop\" value='$row[date_of_publication]' required>
             </div>
     
             <button type=\"submit\" name=\"add\" class=\"btn btn-primary\">Insert to DB</button>
@@ -90,15 +90,15 @@ if (isset($_POST['searchById'])) {
                     </div>
                     <div class=\"form-group\">
                         <label for=\"bookid_updated\">Book Name:</label>
-                        <input type=\"text\" class=\"form-control\" id=\"book_name_updated\" name=\"book_name_updated\" value='$row[name]'>
+                        <input type=\"text\" class=\"form-control\" id=\"book_name_updated\" name=\"book_name_updated\" value='$row[name]' required>
                     </div>
                     <div class=\"form-group\">
                         <label for=\"bookid_updated\">Price (USD):</label>
-                        <input type=\"text\" class=\"form-control\" id=\"price_updated\" name=\"price_updated\" value='$row[price]'>
+                        <input type=\"text\" class=\"form-control\" id=\"price_updated\" name=\"price_updated\" value='$row[price]' required>
                     </div>
                     <div class=\"form-group\">
                         <label for=\"bookid_updated\">Date of publication:</label>
-                        <input type=\"text\" class=\"form-control\" id=\"dop_updated\" name=\"dop_updated\" value='$row[date_of_publication]'>
+                        <input type=\"text\" class=\"form-control\" id=\"dop_updated\" name=\"dop_updated\" value='$row[date_of_publication]' required>
                     </div>                    
                     <div class=\"form-row align-items-left\">
                         <div class=\"col-auto\">
